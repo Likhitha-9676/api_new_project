@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+}
+
+/* Heading */
+.animated-title {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+/* Search */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+}
+
+#searchInput {
+    width: 40%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* NAVIGATION WRAPPER (Centers the whole block) */
+.nav-wrapper {
+    display: flex;
+    justify-content: center;   /* This centers it horizontally */
+    margin-bottom: 25px;
+}
+
+/* Navigation Buttons Container */
+.nav-container {
+    display: flex;
+    gap: 25px;
+}
+
+/* Square Buttons */
+.nav-btn {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;   /* Square look */
+    transition: 0.3s ease;
+}
+
+/* Different Colors */
+.nav-btn:nth-child(1) { background: #e74c3c; }
+.nav-btn:nth-child(2) { background: #3498db; }
+.nav-btn:nth-child(3) { background: #f39c12; }
+.nav-btn:nth-child(4) { background: #27ae60; }
+
+/* Hover */
+.nav-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Active */
+.nav-btn.active {
+    border: 3px solid white;
+}
+
+/* News Layout */
+#newsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.news-card {
+    width: 30%;
+    min-width: 280px;
+    padding: 20px;
+    margin: 15px;
+    background: white;
+    border-radius: 10px;
+}

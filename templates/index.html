@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Portal</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1 class="animated-title">BREAKING NEWS INDIA</h1>
+
+<!-- SEARCH BAR -->
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search news..." onkeyup="searchNews()">
+</div>
+
+<!-- NAVIGATION BAR (DIRECTLY UNDER SEARCH & CENTERED) -->
+<div class="nav-wrapper">
+    <div class="nav-container">
+        <a href="/?category=top"
+           class="nav-btn {% if selected_category == 'top' %}active{% endif %}">
+           Top
+        </a>
+
+        <a href="/?category=sports"
+           class="nav-btn {% if selected_category == 'sports' %}active{% endif %}">
+           Sports
+        </a>
+
+        <a href="/?category=entertainment"
+           class="nav-btn {% if selected_category == 'entertainment' %}active{% endif %}">
+           Entertainment
+        </a>
+
+        <a href="/?category=education"
+           class="nav-btn {% if selected_category == 'education' %}active{% endif %}">
+           Education
+        </a>
+    </div>
+</div>
+
+<!-- NEWS SECTION -->
+<div id="newsContainer">
+    {% for article in articles %}
+    <div class="news-card">
+        <h2>{{ article["title"] }}</h2>
+        <p><strong>Source:</strong> {{ article["source_id"] }}</p>
+        <p>{{ article["description"] }}</p>
+        <a href="{{ article["link"] }}" target="_blank">Read More</a>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+function searchNews() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let cards = document.getElementsByClassName("news-card");
+
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getElementsByTagName("h2")[0];
+        if (title.innerHTML.toLowerCase().includes(input)) {
+            cards[i].style.display = "block";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
